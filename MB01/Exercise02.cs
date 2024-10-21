@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,9 +25,15 @@ namespace MB01
 
         }
 
+        private int GetNormalizedStringLength(string textWithLineBreaks)
+        {
+            string cleanupString = Regex.Replace(textWithLineBreaks, @"\t|\n|\r", "");
+            return cleanupString.Length;
+        }
+
         private void TxtWordInput_TextChanged(object sender, EventArgs e)
         {
-            SetTextlength(TxtWordInput.Text.Length);
+            SetTextlength(GetNormalizedStringLength(TxtWordInput.Text));
         }
 
         private void BtnShowResult_Click(object sender, EventArgs e)
