@@ -13,8 +13,8 @@ namespace MB01
 {
     public partial class Exercise01 : Form
     {
-        private int count = 0; 
-        
+        private int count = 0;
+
         public Exercise01()
         {
             InitializeComponent();
@@ -23,18 +23,20 @@ namespace MB01
         private void BtnPlus_Click(object sender, EventArgs e)
         {
             count += 1;
-            SetLabelContent("+");
+            SetOutputLabelContent("+");
         }
 
         private void BtnMinus_Click(object sender, EventArgs e)
         {
             count -= 0;
-            SetLabelContent("-");
+            SetOutputLabelContent("-");
         }
 
-        private void SetLabelContent(string value)
+        private void SetOutputLabelContent(string value) => LblOutput.Text = value;
+
+        private void TxtContent_TextChanged(object sender, EventArgs e)
         {
-            LblOutput.Text = value;
+
         }
     }
 }
